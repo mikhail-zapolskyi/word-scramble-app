@@ -40,43 +40,53 @@ const App = () => {
      },[data]);
 
      const handleLettersInput = (e) => {
+          const { id, value } = e.target;
+          let correctLetter = false;
+          
           e.preventDefault();
-          setSentenceToCompare({...sentenceToCompare, [e.target.id]: {value: e.target.value, correctGuess: false}})
+          setSentenceToCompare({...sentenceToCompare, [id]: {value: value, correctGuess: false}})
           
           const trueSentenceArr = Array.from(data.sentence);
           trueSentenceArr.map((item, index) => {
-               if(index === Number(e.target.id) && item === e.target.value){
-                    setSentenceToCompare({ ...sentenceToCompare, [e.target.id]: {value: e.target.value, correctGuess: true}})
+               if(index === Number(id) && item.toLowerCase() === value.toLowerCase()){
+                    setSentenceToCompare({ ...sentenceToCompare, [id]: {value: value, correctGuess: true}})
+                    correctLetter = true;
                     return true
                } else {
                     return false
                }
           })
-
-          const letter = document.getElementById(`${Number(e.target.id) + 1}`);
-          if(!letter){
+          
+          if (correctLetter)  {
+               const letter = document.getElementById(`${Number(id) + 1}`);
+               if(!letter){
+                    return false;
+               } 
+               letter.focus()
+          } else {
                return false;
           }
-          letter.focus()
      };
 
      const nextItemChange = (e) => {
+          const { id } = e.target;
+
           e.preventDefault();
           if(e.keyCode === 8){
-               const item = document.getElementById(`${Number(e.target.id) - 1}`);
-               setSentenceToCompare({ ...sentenceToCompare, [e.target.id - 1]: {value: '', correctGuess: false}})
+               const item = document.getElementById(`${Number(id) - 1}`);
+               setSentenceToCompare({ ...sentenceToCompare, [id - 1]: {value: '', correctGuess: false}})
                if(!item) {
                     return false;
                }
                item.focus();
           } else if( e.keyCode === 37 ) {
-               const item = document.getElementById(`${Number(e.target.id) - 1}`);
+               const item = document.getElementById(`${Number(id) - 1}`);
                if(!item) {
                     return false;
                } 
                item.focus()
           } else if( e.keyCode === 39 ) {
-               const item = document.getElementById(`${Number(e.target.id) + 1}`);
+               const item = document.getElementById(`${Number(id) + 1}`);
                if(!item) {
                     return false;
                } 
@@ -159,10 +169,12 @@ const App = () => {
                                    })}
                               </div>
                               <div className='btn__container'>
-                                   <button 
+                                   { checkCorrectGuess().correct 
+                                   ? <button 
                                         id='btn'
-                                        className={`btn ${ checkCorrectGuess().correct ? 'btnCorrect' : '' }`}
+                                        className={`btn btnCorrect`}
                                    >Next</button>
+                                   : false}
                               </div>
                          </form>
                     </div>
