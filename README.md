@@ -15,4 +15,4 @@ This is Hatchways project from [Hatchway App](https://app.hatchways.io/). Feedba
 * npm run test
 
 ## Live Version of the project
-[Click to view the app](https://mikhail-zapolskyi.github.io/0002-drum-machine/)
+[Click to view the app](https://mikhail-zapolskyi.github.io/word-scrambler-app/)
