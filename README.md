@@ -1,4 +1,4 @@
-# Word Scrambler
+# Word Scrambler Game
 
 This is Hatchways project from [Hatchway App](https://app.hatchways.io/). Feedback and questions are welcome!
 
@@ -12,5 +12,7 @@ This is Hatchways project from [Hatchway App](https://app.hatchways.io/). Feedba
 * npm start
 
 ## Test 
-
 * npm run test
+
+## Live Version of the project
+[Click to view the app](https://mikhail-zapolskyi.github.io/0002-drum-machine/)

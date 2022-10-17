@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/word-scrambler-app/static/css/main.17eb9d47.css",
+    "main.js": "/word-scrambler-app/static/js/main.011d2f41.js",
+    "index.html": "/word-scrambler-app/index.html",
+    "main.17eb9d47.css.map": "/word-scrambler-app/static/css/main.17eb9d47.css.map",
+    "main.011d2f41.js.map": "/word-scrambler-app/static/js/main.011d2f41.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.17eb9d47.css",
+    "static/js/main.011d2f41.js"
+  ]
+}
